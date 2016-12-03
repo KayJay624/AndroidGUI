@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_settings" android:title="Settings"
-        android:orderInCategory="1" app:showAsAction="never"/>
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">>
 
     <item
-        android:id="@+id/action_download"
-        android:orderInCategory="2"
-        android:title="Search"
-        android:icon="@mipmap/ic_download"
-        app:showAsAction="ifRoom">
-    </item>
+        android:id="@+id/action_edit"
+        android:orderInCategory="200"
+        android:icon="@drawable/ic_action_edit"
+        android:title="Edit"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_search"
-        android:orderInCategory="3"
-        android:title="Search"
-        android:icon="@mipmap/ic_download"
-        app:showAsAction="ifRoom">
+        android:orderInCategory="300"
+        android:icon="@drawable/ic_action_search"
+        android:title="Edit"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never">
+        <item
+            android:id="@+id/menuOption1"
+            android:title="Option one" />
+        <item
+            android:id="@+id/menuOption2"
+            android:title="Option two" />
+        <item
+            android:id="@+id/menuOption3"
+            android:title="Option three" />
     </item>
+
 </menu>
