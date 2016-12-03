@@ -30,28 +30,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menuOption1:
-                Toast toast_settings1 = Toast.makeText(getApplicationContext(), "Option One selected", Toast.LENGTH_SHORT);
-                toast_settings1.show();
-                return true;
-            case R.id.menuOption2:
-                Toast toast_settings2 = Toast.makeText(getApplicationContext(), "Option Two selected", Toast.LENGTH_SHORT);
-                toast_settings2.show();
-                return true;
-
-            case R.id.menuOption3:
-                Toast toast_settings3 = Toast.makeText(getApplicationContext(), "Option Three selected", Toast.LENGTH_SHORT);
-                toast_settings3.show();
-                return true;
-
-            case R.id.action_edit:
-                Toast toast_edit = Toast.makeText(getApplicationContext(), "Edit selected", Toast.LENGTH_SHORT);
-                toast_edit.show();
-                return true;
-
-            case R.id.action_search:
-                Toast toast_search = Toast.makeText(getApplicationContext(), "Search selected", Toast.LENGTH_SHORT);
-                toast_search.show();
+            case R.id.action_settings:
+                Toast toast = Toast.makeText(getApplicationContext(), "Settings selected", Toast.LENGTH_SHORT);
+                toast.show();
                 return true;
 
             default:
