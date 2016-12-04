@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,11 +21,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        //--- text view---
-        TextView textView = (TextView) findViewById(R.id.text_view);
+        //--- text view ---
+        final TextView textView = (TextView) findViewById(R.id.text_view);
 
-        //--- edit text---
-        EditText editText = (EditText) findViewById(R.id.edit_text);
+        //--- edit text ---
+        final EditText editText = (EditText) findViewById(R.id.edit_text);
+
+        //--- button ---
+        Button btn = (Button) findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String str = editText.getText().toString();
+                textView.setText(str);
+            }
+        });
     }
 
     @Override
