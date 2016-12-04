@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         //--- edit text ---
         final EditText editText = (EditText) findViewById(R.id.edit_text);
 
-        //--- button ---
-        Button btn = (Button) findViewById(R.id.button);
+        //--- image button ---
+        ImageButton btn = (ImageButton) findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String str = editText.getText().toString();
