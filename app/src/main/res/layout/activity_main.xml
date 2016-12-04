@@ -37,13 +37,47 @@
         android:layout_alignLeft="@+id/text_view"
         android:layout_alignStart="@+id/text_view" />
 
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Checkbox option one"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/edit_text"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Checkbox option two "
+        android:checked="false"
+        android:layout_below="@+id/checkBox1"
+        android:layout_alignLeft="@+id/checkBox1"
+        android:layout_alignStart="@+id/checkBox1"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Checkbox option three "
+        android:checked="false"
+        android:layout_below="@+id/checkBox2"
+        android:layout_alignLeft="@+id/checkBox2"
+        android:layout_alignStart="@+id/checkBox2"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center" />
+
     <ImageButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/edit_text"
+        android:src="@drawable/ic_btn_reload"
+        android:layout_below="@+id/checkBox3"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_btn_reload"/>
+        android:layout_marginTop="30dp" />
 
 </RelativeLayout>

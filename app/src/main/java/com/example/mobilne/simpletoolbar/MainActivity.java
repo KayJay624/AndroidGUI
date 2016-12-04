@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -28,12 +29,25 @@ public class MainActivity extends AppCompatActivity {
         //--- edit text ---
         final EditText editText = (EditText) findViewById(R.id.edit_text);
 
+        //--- checkboxes ---
+        final CheckBox ch1=(CheckBox)findViewById(R.id.checkBox1);
+        final CheckBox ch2=(CheckBox)findViewById(R.id.checkBox2);
+        final CheckBox ch3=(CheckBox)findViewById(R.id.checkBox3);
+
         //--- image button ---
         ImageButton btn = (ImageButton) findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String str = editText.getText().toString();
                 textView.setText(str);
+
+                StringBuffer result = new StringBuffer();
+                result.append("checkbox 1 is checked : ").append(ch1.isChecked());
+                result.append("\ncheckbox 2 is checked: ").append(ch2.isChecked());
+                result.append("\ncheckbox 3 is checked: ").append(ch3.isChecked());
+                Toast.makeText(MainActivity.this, result.toString(),
+                        Toast.LENGTH_LONG).show();
+
             }
         });
     }
