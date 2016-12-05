@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.mobilne.simpletoolbar.MainActivity">
-
-    <include
-        android:id="@+id/my_toolbar"
-        layout="@layout/toolbar">
-
-    </include>
-
-
-
-
-    <TextView
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RadioButton android:id="@+id/radio_pirates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</LinearLayout>
+        android:text="@string/pirates"
+        android:onClick="onRadioButtonClicked"/>
+
+    <RadioButton android:id="@+id/radio_ninjas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ninjas"
+        android:onClick="onRadioButtonClicked"/>
+
+    <TextView
+        android:text="@string/make_choice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+</RadioGroup>
