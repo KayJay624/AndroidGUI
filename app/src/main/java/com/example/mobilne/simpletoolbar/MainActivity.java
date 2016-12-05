@@ -7,48 +7,40 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity {
-    private ProgressBar mProgress;
-    private int mProgressStatus = 0;
-
-    private Handler mHandler = new Handler();
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private TextView textView;
-
 
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_main);
-        textView = (TextView)findViewById(R.id.textView);
-
-        mProgress = (ProgressBar) findViewById(R.id.progress_bar);
-
-        // Start lengthy operation in a background thread
-        new Thread(new Runnable() {
-            public void run() {
-                while (mProgressStatus < 100) {
-                    mProgressStatus = doWork();
-
-                    // Update the progress bar
-                    mHandler.post(new Runnable() {
-                        public void run() {
-                            mProgress.setProgress(mProgressStatus);
-                        }
-                    });
-                }
-            }
-        }).start();
+        textView = (TextView) findViewById(R.id.textView);
+        Spinner spinner = (Spinner) findViewById(R.id.planets_spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.planets_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        CharSequence selectedPlanet = (CharSequence) parent.getItemAtPosition(pos);
+        textView.setText("You've chosen " + selectedPlanet + ", nice!");
     }
 
-    private int doWork() {
-        android.os.SystemClock.sleep(50);
-        return mProgressStatus + 1;
+    public void onNothingSelected(AdapterView<?> parent) {
     }
 
 }
