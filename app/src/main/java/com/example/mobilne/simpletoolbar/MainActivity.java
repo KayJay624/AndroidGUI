@@ -13,34 +13,52 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private TextView textView;
+import java.util.Calendar;
 
-    protected void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+public class MainActivity extends AppCompatActivity implements TimePicker.OnTimeChangedListener {
+    private TimePicker timePicker1;
+    private TextView time;
+    private Calendar calendar;
+    private String format = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = (TextView) findViewById(R.id.textView);
-        Spinner spinner = (Spinner) findViewById(R.id.planets_spinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.planets_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-    }
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        CharSequence selectedPlanet = (CharSequence) parent.getItemAtPosition(pos);
-        textView.setText("You've chosen " + selectedPlanet + ", nice!");
+
+        timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
+        time = (TextView) findViewById(R.id.textView);
+        calendar = Calendar.getInstance();
+
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        showTime(hour, min);
+        timePicker1.setOnTimeChangedListener(this);
     }
 
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void showTime(int hour, int min) {
+        if (hour == 0) {
+            hour += 12;
+            format = "AM";
+        } else if (hour == 12) {
+            format = "PM";
+        } else if (hour > 12) {
+            hour -= 12;
+            format = "PM";
+        } else {
+            format = "AM";
+        }
+        time.setText(new StringBuilder().append(hour).append(" : ").append(min)
+                .append(" ").append(format));
     }
 
+    @Override
+    public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+        showTime(hourOfDay, minute);
+    }
 }
