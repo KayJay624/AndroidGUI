@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SimpleToolBar</string>
     <string name="make_choice">Choose your favourite planet!</string>
+    <string name="pick_time">Pick date</string>
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
