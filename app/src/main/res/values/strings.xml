@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">SimpleToolBar</string>
-    <string name="pirates">I like pirates!</string>
-    <string name="ninjas">I like ninjas!</string>
-    <string name="make_choice">Make your choice.</string>
-    <string name="pirates_chosen">Pirates are best!</string>
-    <string name="ninjas_chosen">Ninjas are cool!</string>
+    <string name="loading">Loading in progress</string>
+    <string name="done">Done!</string>
 </resources>
